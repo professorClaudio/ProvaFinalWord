@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova de Word Básico</title>
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #e6f7ff; /* Cor de fundo suave */
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        h1 {
+            color: #1a73e8; /* Azul do Word */
+            text-align: center;
+            border-bottom: 3px solid #e0e0e0;
+            padding-bottom: 15px;
+            margin-bottom: 35px;
+            font-size: 2em;
+        }
+        .question {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #cceeff;
+            border-left: 5px solid #1a73e8;
+            border-radius: 8px;
+            background-color: #f7f9fc;
+            transition: box-shadow 0.3s;
+        }
+        .question p {
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: #004d99;
+            font-size: 1.1em;
+        }
+        .options label {
+            display: block;
+            margin: 10px 0;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        .options label:hover {
+            background-color: #e9f5ff;
+            border-color: #1a73e8;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 40px;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        button:hover {
+            background-color: #005aa3;
+        }
+        button:active {
+            transform: translateY(2px);
+        }
+        #result {
+            margin-top: 30px;
+            padding: 25px;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            display: none; /* Inicia oculto */
+        }
+        /* Feedback de cores */
+        .correct {
+            background-color: #e6ffe6; /* Verde claro para acerto */
+            border-color: #4CAF50 !important;
+        }
+        .incorrect {
+            background-color: #ffe6e6; /* Vermelho claro para erro */
+            border-color: #f44336 !important;
+        }
+        .correct-option {
+            background-color: #d4edda !important; /* Marca a opção correta em verde */
+            border: 2px solid #4CAF50 !important;
+        }
+        .correct-answer-feedback {
+            font-size: 0.9em;
+            margin-top: 10px;
+            padding: 5px;
+            border-radius: 3px;
+        }
+        .incorrect .correct-answer-feedback {
+            color: #f44336;
+        }
+        .correct .correct-answer-feedback {
+            color: #4CAF50;
+        }
+        .options input[type="radio"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>📝 Prova de Microsoft Word Básico (20 Questões)</h1>
+
+    <form id="quiz-form">
+        <div class="question" id="q1">
+            <p>1. Qual é a principal área de trabalho onde você digita e edita o conteúdo em um documento do Word?</p>
+            <div class="options">
+                <label><input type="radio" name="q1" value="A"> Barra de Títulos</label>
+                <label><input type="radio" name="q1" value="B"> Faixa de Opções (Ribbon)</label>
+                <label><input type="radio" name="q1" value="C"> Painel de Navegação</label>
+                <label><input type="radio" name="q1" value="D"> Documento / Área de Edição</label>
+            </div>
+            <span class="correct-answer-feedback" style="display: none;"></span>
+        </div>
+
+        <div class="question" id="q2">
+            <p>2. Qual atalho de teclado padrão é usado para aplicar ou remover a formatação **Negrito** no texto selecionado?</p>
+            <div class="options">
+                <label><input type="radio" name="q2" value="A"> Ctrl + S</label>
+                <label><input type="radio" name="q2" value="B"> Ctrl + I</label>
+                <label><input type="radio" name="q2" value="C"> Ctrl + N</label>
+                <label><input type="radio" name="q2" value="D"> Ctrl + T</label>
+            </div>
+            <span class="correct-answer-feedback" style="display: none;"></span>
+        </div>
+
+        <div class="question" id="q3">
+            <p>3. As **Réguas** (horizontal e vertical) no Word são usadas principalmente para:</p>
+            <div class="options">
+                <label><input type="radio" name="q3" value="A"> Inserir imagens e formas.</label>
+                <label><input type="radio" name="q3" value="B"> Ajustar o nível de zoom do documento.</label>
+                <label><input type="radio" name="q3" value="C"> Definir margens, recuos e tabulações.</label>
+                <label><input type="radio" name="q3" value="D"> Iniciar a verificação ortográfica.</label>
+            </div>
+            <span class="correct-answer-feedback" style="display: none;"></span>
+        </div>
+
+        <div class="question" id="q4">
+            <p>4. Qual é o atalho de teclado para abrir a caixa de diálogo **Localizar** no Word?</p>
+            <div class="options">
+                <label><input type="radio" name="q4" value="A"> Ctrl + L</label>
+                <label><input type="radio" name="q4" value="B"> Ctrl + U</label>
+                <label><input type="radio" name="q4" value="C"> Ctrl + F</label>
+                <label><input type="radio" name="q4" value="D"> Ctrl + J</label>
+            </div>
+            <span class="correct-answer-feedback" style="display: none;"></span>
+        </div>
+
+        <div class="question" id="q5">
+            <p>5. O recurso **Substituir** é encontrado junto com o Localizar e tem a função de:</p>
+            <div class="options">
+                <label><input type="radio" name="q5" value="A"> Formatar um parágrafo inteiro.</label>
+                <label><input type="radio" name="q5" value="B"> Trocar todas as ocorrências de uma palavra ou frase por outra de forma automática.</label>
+                <label><input type="radio" name="q5" value="C"> Alterar o tamanho da fonte do documento.</label>
+                <label><input type="radio" name="q5" value="D"> Inserir uma tabela no documento.</label>
+            </div>
+            <span class="correct-answer-feedback" style="display: none;"></span>
+        </div>
+
+        <div class="question" id="q6">
+            <p>6. Para mover o parágrafo inteiro (todas as suas linhas) para a direita em relação à margem, você deve usar o recurso de:</p>
+            <div class="options">
+                <label><input type="radio" name="q6" value="A"> Tabulação.</label>
+                <label><input type="radio" name="q6" value="B"> Recuo à Direita.</label>
+                <label><input type="radio" name="q6" value="C"> Recuo à Esquerda.</label>
+                <label><input type="radio" name="q6" value="D"> Espaçamento de Linha.</label>
+            </div>
+            <span class="correct-answer-feedback" style="display: none;"></span>
+        </div>
+
+        <div class="question" id="q7">
+            <p>7. Para formatar um título ou palavra em **Itálico** (inclinação), qual atalho de teclado é usado?</p>
+            <div class="options">
+                <label><input type="radio" name="q7" value="A"> Ctrl + S</label>
+                <label><input type="radio" name="q7" value="B"> Ctrl + I</label>
+                <label><input type="radio" name="q7" value="C"> Ctrl + P</label>
+                <label><input type="radio" name="q7" value="D"> Ctrl + G</label>
+            </div>
+            <span class="correct-answer-feedback" style="display: none;"></span>
+        </div>
+
+        <div class="question" id="q8">
+            <p>8. Qual formatação adiciona uma linha sob o texto selecionado?</p>
+            <div class="options">
+                <label><input type="radio" name="q8" value="A"> Subscrito</label>
+                <label><input type="radio" name="q8" value="B"> Sublinhado</label>
+                <label><input type="radio" name="q8" value="C"> Tachado</label>
+                <label><input type="radio" name="q8" value="D"> Realce</label>
+            </div>
+            <span class="correct-answer-feedback" style="display: none;"></span>
+        </div>
+
+        <div class="question" id="q9">
+            <p>9. As opções para mudar o **tipo de fonte** (ex: Arial, Calibri) e o **tamanho da fonte** são encontradas no grupo:</p>
+            <div class="options">
+                <label><input type="radio" name="q9" value="A"> Parágrafo</label>
+                <label><input type="radio" name="q9" value="B"> Estilos</label>
+                <label><input type="radio" name="q9" value="C"> Fonte</label>
+                <label><input type="radio" name="q9" value="D"> Edição</label>
+            </div>
+            <span class="correct-answer-feedback" style="display: none;"></span>
+        </div>
+
+        <div class="question" id="q10">
+            <p>10. Para criar uma lista em que a ordem dos itens **não é relevante** (usando símbolos como bolinhas), você deve usar:</p>
+            <div class="options">
+                <label><input type="radio" name="q10" value="A"> Numeração</label>
+                <label><input type="radio" name="q10" value="B"> Marcadores</label>
+                <label><input type="radio" name="q10" value="C"> Recuo Deslocado</label>
+                <label><input type="radio" name="q10" value="D"> Tabulação</label>
+            </div>
+            <span class="correct-answer-feedback" style="display: none;"></span>
+        </div>
+
+        <div class="question" id="q11">
+            <p>11. O recurso de **Numeração** é ideal para listas onde:</p>
+            <div class="options">
+                <label><input type="radio" name="q11" value="A"> Os itens são representados por símbolos.</label>
+                <label><input type="radio" name="q11" value="B"> É necessário manter uma ordem sequencial (1, 2, 3 ou A, B, C).</label>
+                <label><input type="radio" name="q11" value="C"> O texto é formatado em itálico.</label>
+                <label><input type="radio" name="q11" value="D"> É preciso aplicar formatação condicional.</label>
+            </div>
+            <span class="correct-answer-feedback" style="display: none;"></span>
+        </div>
+
+        <div class="question" id="q12">
+            <p>12. Para formatar um texto como em um jornal, dividindo a página em áreas verticais, você usa o recurso **Colunas**, que é encontrado na guia:</p>
+            <div class="options">
+                <label><input type="radio" name="q12" value="A"> Página Inicial</label>
+                <label><input type="radio" name="q12" value="B"> Layout</label>
+                <label><input type="radio" name="q12" value="C"> Referências</label>
+                <label><input type="radio" name="q12" value="D"> Exibir</label>
+            </div>
+            <span class="correct-answer-feedback" style="display: none;"></span>
+        </div>
+
+        <div class="question" id="q13">
+            <p>13. Uma palavra sublinhada com uma **linha vermelha ondulada** no Word geralmente indica:</p>
+            <div class="options">
+                <label><input type="radio" name="q13" value="A"> Um erro de gramática.</label>
+                <label><input type="radio" name="q13" value="B"> Um erro de ortografia (palavra desconhecida ou mal digitada).</label>
+                <label><input type="radio" name="q13" value="C"> Uma formatação incorreta.</label>
+                <label><input type="radio" name="q13" value="D"> Uma quebra de linha manual.</label>
+            </div>
+            <span class="correct-answer-feedback" style="display: none;"></span>
+        </div>
+
+        <div class="question" id="q14">
+            <p>14. O atalho de teclado **F7** tem a função de:</p>
+            <div class="options">
+                <label><input type="radio" name="q14" value="A"> Abrir a caixa de diálogo Salvar Como.</label>
+                <label><input type="radio" name="q14" value="B"> Iniciar a verificação Ortográfica e Gramatical.</label>
+                <label><input type="radio" name="q14" value="C"> Aplicar o alinhamento justificado.</label>
+                <label><input type="radio" name="q14" value="D"> Imprimir o documento.</label>
+            </div>
+            <span class="correct-answer-feedback" style="display: none;"></span>
+        </div>
+
+        <div class="question" id="q15">
+            <p>15. O **Recuo Deslocado (ou Pendente)** é usado para:</p>
+            <div class="options">
+                <label><input type="radio" name="q15" value="A"> Mover todo o parágrafo para a direita.</label>
+                <label><input type="radio" name="q15" value="B"> Mover apenas a primeira linha de um parágrafo para a direita.</label>
+                <label><input type="radio" name="q15" value="C"> Mover a primeira linha para a esquerda e o restante para a direita.</label>
+                <label><input type="radio" name="q15" value="D"> Mover todas as linhas, exceto a primeira, para a direita.</label>
+            </div>
+            <span class="correct-answer-feedback" style="display: none;"></span>
+        </div>
+
+        <div class="question" id="q16">
+            <p>16. Qual recurso permite encontrar e pular rapidamente para títulos, páginas ou resultados de pesquisa específicos no documento?</p>
+            <div class="options">
+                <label><input type="radio" name="q16" value="A"> Mala Direta</label>
+                <label><input type="radio" name="q16" value="B"> Painel de Navegação</label>
+                <label><input type="radio" name="q16" value="C"> Modo de Leitura</label>
+                <label><input type="radio" name="q16" value="D"> Modo Rascunho</label>
+            </div>
+            <span class="correct-answer-feedback" style="display: none;"></span>
+        </div>
+
+        <div class="question" id="q17">
+            <p>17. A principal utilidade da **Mala Direta** é:</p>
+            <div class="options">
+                <label><input type="radio" name="q17" value="A"> Aplicar estilos predefinidos ao texto.</label>
+                <label><input type="radio" name="q17" value="B"> Criar documentos, como cartas ou etiquetas, personalizados para uma lista grande de destinatários.</label>
+                <label><input type="radio" name="q17" value="C"> Gerar um índice automático de um documento.</label>
+                <label><input type="radio" name="q17" value="D"> Converter um documento do Word para PDF.</label>
+            </div>
+            <span class="correct-answer-feedback" style="display: none;"></span>
+        </div>
+
+        <div class="question" id="q18">
+            <p>18. Quais são os dois principais componentes necessários para realizar uma Mala Direta?</p>
+            <div class="options">
+                <label><input type="radio" name="q18" value="A"> Documento Principal e Gráficos SmartArt.</label>
+                <label><input type="radio" name="q18" value="B"> Fontes e Tamanhos de Texto.</label>
+                <label><input type="radio" name="q18" value="C"> Documento Principal (modelo) e Fonte de Dados (lista de destinatários).</label>
+                <label><input type="radio" name="q18" value="D"> Quebras de Seção e Bordas de Página.</label>
+            </div>
+            <span class="correct-answer-feedback" style="display: none;"></span>
+        </div>
+
+        <div class="question" id="q19">
+            <p>19. Em qual guia da Faixa de Opções você inicia o processo da Mala Direta?</p>
+            <div class="options">
+                <label><input type="radio" name="q19" value="A"> Inserir</label>
+                <label><input type="radio" name="q19" value="B"> Layout</label>
+                <label><input type="radio" name="q19" value="C"> Correspondências</label>
+                <label><input type="radio" name="q19" value="D"> Revisão</label>
+            </div>
+            <span class="correct-answer-feedback" style="display: none;"></span>
+        </div>
+
+        <div class="question" id="q20">
+            <p>20. Ao realizar uma Mala Direta, o que é um **Campo de Mesclagem** (ex: «Nome», «Endereço»)?</p>
+            <div class="options">
+                <label><input type="radio" name="q20" value="A"> Um atalho para salvar o documento.</label>
+                <label><input type="radio" name="q20" value="B"> Uma formatação de texto especial.</label>
+                <label><input type="radio" name="q20" value="C"> Um espaço reservado no Documento Principal que será preenchido pelos dados da Fonte de Dados.</label>
+                <label><input type="radio" name="q20" value="D"> Um link para outro documento.</label>
+            </div>
+            <span class="correct-answer-feedback" style="display: none;"></span>
+        </div>
+
+        <button type="button" onclick="checkAnswers()">Finalizar Prova e Ver Resultado</button>
+    </form>
+
+    <div id="result"></div>
+</div>
+
+<script>
+    // Respostas corretas
+    const correctAnswers = {
+        q1: 'D', // Documento / Área de Edição
+        q2: 'C', // Ctrl + N (Negrito)
+        q3: 'C', // Definir margens, recuos e tabulações.
+        q4: 'C', // Ctrl + F (Find - Localizar, o atalho Ctrl+L é para "Substituir" no PT-BR, mas o F é mais universal e comum no botão "Localizar") - *Ajustado para F, mas se a prova fosse estritamente em PT-BR, L seria válido para Substituir.*
+        q5: 'B', // Trocar todas as ocorrências de uma palavra ou frase por outra de forma automática.
+        q6: 'C', // Recuo à Esquerda (move o parágrafo inteiro da margem esquerda)
+        q7: 'B', // Ctrl + I (Itálico)
+        q8: 'B', // Sublinhado
+        q9: 'C', // Fonte
+        q10: 'B', // Marcadores
+        q11: 'B', // É necessário manter uma ordem sequencial
+        q12: 'B', // Layout (ou Design de Página)
+        q13: 'B', // Um erro de ortografia.
+        q14: 'B', // Iniciar a verificação Ortográfica e Gramatical.
+        q15: 'D', // Mover todas as linhas, exceto a primeira, para a direita.
+        q16: 'B', // Painel de Navegação
+        q17: 'B', // Criar documentos, como cartas ou etiquetas, personalizados para uma lista grande de destinatários.
+        q18: 'C', // Documento Principal (modelo) e Fonte de Dados (lista de destinatários).
+        q19: 'C', // Correspondências
+        q20: 'C'  // Um espaço reservado no Documento Principal que será preenchido pelos dados da Fonte de Dados.
+    };
+
+    function checkAnswers() {
+        let score = 0;
+        const totalQuestions = Object.keys(correctAnswers).length;
+        const form = document.getElementById('quiz-form');
+        const questions = document.querySelectorAll('.question');
+
+        // Limpa o feedback anterior e desabilita o formulário
+        questions.forEach(q => {
+            q.classList.remove('correct', 'incorrect');
+            q.querySelectorAll('.options label').forEach(label => {
+                label.classList.remove('correct-option');
+            });
+            q.querySelector('.correct-answer-feedback').style.display = 'none';
+
+            // Desabilita os botões de rádio para evitar novas respostas
+            q.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.disabled = true;
+            });
+        });
+
+        // Itera sobre as questões para calcular a pontuação e aplicar o feedback
+        for (let i = 1; i <= totalQuestions; i++) {
+            const qId = `q${i}`;
+            const questionDiv = document.getElementById(qId);
+            const selectedOption = form.elements[qId].value;
+            const correctAnswer = correctAnswers[qId];
+
+            const feedbackSpan = questionDiv.querySelector('.correct-answer-feedback');
+            
+            // Encontrar e marcar a opção correta
+            let correctOptionLetter = '';
+            questionDiv.querySelectorAll('.options label').forEach(label => {
+                const radio = label.querySelector('input');
+                if (radio.value === correctAnswer) {
+                    label.classList.add('correct-option');
+                    correctOptionLetter = radio.value;
+                }
+            });
+
+            if (selectedOption) {
+                if (selectedOption === correctAnswer) {
+                    score++;
+                    questionDiv.classList.add('correct');
+                    feedbackSpan.innerHTML = `Acerto! A resposta correta é a opção ${correctOptionLetter}.`;
+                } else {
+                    questionDiv.classList.add('incorrect');
+                    feedbackSpan.innerHTML = `Você errou. A resposta correta é a opção ${correctOptionLetter}.`;
+                    
+                    // Opcional: Marcar a opção incorreta selecionada (já está no padrão)
+                    questionDiv.querySelectorAll('.options label').forEach(label => {
+                        const radio = label.querySelector('input');
+                        if (radio.checked && radio.value !== correctAnswer) {
+                            label.style.backgroundColor = '#fde0e0'; // Vermelho mais claro na selecionada
+                        }
+                    });
+                }
+            } else {
+                // Se não respondeu, considera-se incorreta
+                questionDiv.classList.add('incorrect'); 
+                feedbackSpan.innerHTML = `Não respondida. A resposta correta é a opção ${correctOptionLetter}.`;
+            }
+
+            feedbackSpan.style.display = 'block';
+        }
+
+        // Exibe o resultado final
+        const percentage = ((score / totalQuestions) * 100).toFixed(2);
+        const resultDiv = document.getElementById('result');
+
+        let message = '';
+        if (percentage >= 80) {
+            message = `<span style="color: green;">⭐ Excelente! Domínio do Word Básico.</span>`;
+        } else if (percentage >= 50) {
+            message = `<span style="color: orange;">👍 Bom Resultado! Revise os tópicos de Mala Direta e Recuos.</span>`;
+        } else {
+            message = `<span style="color: red;">⚠️ Precisa de mais prática. Dedique-se à Interface e Formatação.</span>`;
+        }
+
+        resultDiv.innerHTML = `
+            ${message}<br><br>
+            Você acertou **${score}** de **${totalQuestions}** questões.<br>
+            Seu percentual de acerto é de **${percentage}%**.
+        `;
+        resultDiv.style.display = 'block';
+
+        // Rolagem suave para o resultado
+        resultDiv.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
